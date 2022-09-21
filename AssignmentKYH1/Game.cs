@@ -12,14 +12,18 @@ namespace AssignmentKYH1
     {
         public void Run()
         {
-
+            Console.WriteLine("Välkommen till Gissa ett tal!");
+            Console.WriteLine("Gissa ett tal mellan 1 och 100");
+            bool playAgain = true;
             Random rand = new Random();
-            int nummer = rand.Next(0, 100);
+            int nummer = rand.Next(1, 100);
+            string svar = "";
+            int gissningar = 0;
             
-            while (true)
-
+            while (playAgain)
+ 
             {
-                Console.WriteLine("Gissa ett tal mellan 1 och 100");
+                gissningar++;
                 int guess = Convert.ToInt32(Console.ReadLine());
 
                 if (guess > nummer)
@@ -27,7 +31,7 @@ namespace AssignmentKYH1
                     Console.Clear();
                     Console.WriteLine("Du gissade fel, talet är lägre");
                 }
-                else if (guess < nummer)
+                if (guess < nummer)
                 {
                     Console.Clear();
                     Console.WriteLine("Du gissade fel, talet är högre");
@@ -35,15 +39,18 @@ namespace AssignmentKYH1
                 else if (guess == nummer)
                 {
                     Console.Clear();
-                    Console.WriteLine("Du gissade rätt!");
-                    break;
-                    {
+                    Console.WriteLine($"Du gissade rätt! Det tog {gissningar} gissningar");
 
+                    Console.WriteLine("Vill du spela igen? Y/N");
+                    svar = Console.ReadLine();
+                    if (svar == "Y")
+                        playAgain = true;
 
-
-                    }
+                    else if (svar == "N")
+                        playAgain = false;
                 }
- 
+
             }
-    }   }
+        }
+    }   
 }
