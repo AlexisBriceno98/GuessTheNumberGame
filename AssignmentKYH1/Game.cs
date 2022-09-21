@@ -26,11 +26,10 @@ namespace AssignmentKYH1
                 }
                 if (guess > nummer)
                 {
-                    Console.Clear();
                     Console.WriteLine("Du gissade fel, talet är lägre");
                     gissningar++;
                 }
-                else if (guess < nummer)
+                if (guess < nummer)
                 {
                     Console.Clear();
                     Console.WriteLine("Du gissade fel, talet är högre");
