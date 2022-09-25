@@ -18,11 +18,12 @@ namespace AssignmentKYH1
             int nummer = rand.Next(0, 100);
             int gissningar = 0;
             while (true)
-
+                
             {
                 try
                 {
                     int guess = Convert.ToInt32(Console.ReadLine());
+
                     {
 
                     }
