@@ -12,59 +12,58 @@ namespace AssignmentKYH1
     {
         public void Run()
         {
-            Console.WriteLine("Välkommen till Gissa ett tal!");
+
             Console.WriteLine("Gissa ett tal mellan 1 och 100");
-            bool playAgain = true;
             Random rand = new Random();
-
-            int nummer = rand.Next(1, 100);
-            string svar = "";
+            int nummer = rand.Next(0, 100);
             int gissningar = 0;
-
-            while (playAgain)
+            while (true)
 
             {
-                gissningar++;
-                int guess = Convert.ToInt32(Console.ReadLine());
+                try
                 {
-
-                }
-                if (guess > nummer)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Du gissade fel, talet är lägre");
-                    gissningar++;
-                }
-                if (guess < nummer)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Du gissade fel, talet är högre");
-                    gissningar++;
-                }
-                else if (guess == nummer)
-                {
-                    Console.Clear();
-
-                    Console.WriteLine($"Du gissade rätt! Det tog {gissningar} gissningar");
-
-                    Console.WriteLine("Du gissade rätt!");
-                    gissningar++;
-                    Console.WriteLine($"Det tog dig {gissningar} gissningar");
-                    break;
+                    int guess = Convert.ToInt32(Console.ReadLine());
                     {
 
+                    }
+                    if (guess > nummer)
+                    {
+                        Console.WriteLine("Du gissade fel, talet är lägre");
+                        gissningar++;
+                    }
+                    if (guess < nummer)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Du gissade fel, talet är högre");
+                        gissningar++;
+                    }
+                    else if (guess == nummer)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Du gissade rätt!");
+                        gissningar++;
+                        Console.WriteLine($"Det tog dig {gissningar} gissningar");
 
-                        Console.WriteLine("Vill du spela igen? Y/N");
-                        svar = Console.ReadLine();
-                        if (svar == "Y")
-                            playAgain = true;
-
-                        else if (svar == "N")
-                            playAgain = false;
+                        Console.WriteLine("Vill du spela igen (Ja/Nej)?");
+                        string svar = Console.ReadLine();
+                        gissningar = 0;
+                        if (svar == "Ja")
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tack för den här gången!");
+                            break;
+                        }
                     }
 
+                 }
+                catch
+                {
+                    Console.WriteLine("Du kan bara skriva ett tal med siffror. Försök igen!");
                 }
             }
         }
     
-    }   }  
+}   }  
